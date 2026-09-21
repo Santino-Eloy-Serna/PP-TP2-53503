@@ -4,11 +4,18 @@ import Modelo.Actividades.Actividad;
 import Modelo.Actividades.Charla;
 import Modelo.Actividades.Taller;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.io.Serializable;
 
-public class EventoUniversitario {
+public class EventoUniversitario implements Serializable{
     private final String Id;
     private String titulo;
     private double costoBase;
@@ -127,7 +134,7 @@ public class EventoUniversitario {
                 System.out.println("Se creo una actividad de tipo "+tipo+" en el evento "+titulo);
                 break;
             case "taller":
-                System.out.println("El Modelo.Actividades.Taller "+titulo+" requiere uso de NoteBook? (S/N)");
+                System.out.println("El Actividades.Taller "+titulo+" requiere uso de NoteBook? (S/N)");
                 String respuesta = scanner.nextLine().trim().toLowerCase();
                 boolean PNB = respuesta.equals("s") || respuesta.equals("si");
                 Actividad taller = new Taller(id,titulo,PNB,cupo);
@@ -135,7 +142,7 @@ public class EventoUniversitario {
                 System.out.println("Se creo una actividad de tipo "+tipo+" en el evento "+titulo);
                 break;
             default:
-                System.out.println("Error: Modelo.Actividades.Actividad solicitada no encontrada");
+                System.out.println("Error: Actividad solicitada no encontrada");
         }
     }
     //CA = Crear Modelo.Actividades.Actividad
@@ -144,12 +151,53 @@ public class EventoUniversitario {
         System.out.println("Evento codigo=" + Id);
         System.out.println("TÍtulo=" + titulo);
         System.out.println("Costo=" + this.CCE());
-        System.out.println("Modelo.Sala asignada: " + (sala != null ? sala.getNombre() : "Sin sala")+"\n");
-        System.out.println("Modelo.Actividades:");
+        System.out.println("Sala asignada: " + (sala != null ? sala.getNombre() : "Sin sala")+"\n");
+        System.out.println("Actividades:");
         for (Actividad actividad : actividades) {
             actividad.MI();
             actividad.mostrarInscripciones();
         }
+    }
+
+    public boolean persistirEvento(){
+        String NA = "evento-"+Id+".dat";
+        //NA = Nombre Archivo
+
+        try (ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(NA))){
+
+            salida.writeObject(this);
+
+            System.out.println("Evento Persistido");
+
+            return true;
+        } catch (FileNotFoundException e){
+            System.out.println("Error: No se pudo crear/abrir el archivo");
+        } catch (IOException e) {
+            System.out.println("Error de entrada/salida al persistir");
+        }
+
+        return false;
+    }
+
+    public EventoUniversitario recuperarEvento(String id) {
+        String NA = "evento_" + id + ".dat";
+
+        try (ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(NA))) {
+
+            EventoUniversitario evento = (EventoUniversitario) entrada.readObject();
+
+            System.out.println("Evento recuperado correctamente.");
+            return evento;
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: no existe el archivo del evento");
+        } catch (IOException e) {
+            System.out.println("Error de entrada/salida al recuperar el event");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println("Error: No se encontró la clase del objeto");
+        }
+
+        return null;
     }
 }
 

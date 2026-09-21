@@ -1,6 +1,7 @@
 package Modelo;
 
 import Modelo.Actividades.Actividad;
+import Excepciones.CupoExcedidoException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ public class APP {
 
         while(TER) {
             System.out.println("Ingrese que desea hacer: ");
-            System.out.println("Registrar Modelo.Estudiante (RE)");
+            System.out.println("Registrar Estudiante (RE)");
             System.out.println("Crear Evento (CE)");
             //Crear un evento implica crear minimo una actividad, asignar una sala e inscribir un estudiante (Por ahora)
             String respuesta = scanner.nextLine().toLowerCase();
@@ -25,9 +26,9 @@ public class APP {
                     boolean CONT = true;
 
                     while (CONT){
-                        System.out.println("Ingrese el nombre del Modelo.Estudiante: ");
+                        System.out.println("Ingrese el nombre del Estudiante: ");
                         String N = scanner.nextLine();
-                        System.out.println("Ingrese el legajo del Modelo.Estudiante: ");
+                        System.out.println("Ingrese el legajo del Estudiante: ");
                         String L = scanner.nextLine();
 
                         estudiantes.add(new Estudiante(L,N));
@@ -72,17 +73,17 @@ public class APP {
                     boolean CAN = true;
 
                     while (CAN){
-                        System.out.println("Ingrese el nombre de la Modelo.Actividades.Actividad: ");
+                        System.out.println("Ingrese el nombre de la Actividad: ");
                         String NA = scanner.nextLine();
-                        System.out.println("Ingrese el cupo maximo de estudiantes para la Modelo.Actividades.Actividad: ");
+                        System.out.println("Ingrese el cupo maximo de estudiantes para la Actividad: ");
                         int C = scanner.nextInt();
                         scanner.nextLine();
-                        System.out.println("La actividad es una Modelo.Actividades.Charla o un Modelo.Actividades.Taller?");
+                        System.out.println("La actividad es una Charla o un Taller?");
                         String tipo = scanner.nextLine().trim().toLowerCase();
                         evento.CA(idA,NA,C,tipo);
                         CAN = false;
 
-                        System.out.println("Desea crear otro Modelo.Actividades.Actividad para este evento? S/N");
+                        System.out.println("Desea crear otra Actividad para este evento? S/N");
                         String Re = scanner.nextLine().trim().toLowerCase();
 
                         if (Re.equals("s") || Re.equals("si")){
@@ -99,7 +100,7 @@ public class APP {
                         while (CAN){
                             System.out.println("Ingrese el legajo del estudiante que dese inscribir: ");
                             String legajo = scanner.nextLine();
-                            System.out.println("Ingrese el id de la Modelo.Actividades.Actividad a inscribirse: ");
+                            System.out.println("Ingrese el id de la Actividad a inscribirse: ");
                             int NID = scanner.nextInt();
                             scanner.nextLine();
 
@@ -107,12 +108,36 @@ public class APP {
                                 if (estudiante.getLegajo().equals(legajo)){
                                     -- NID;
                                     Actividad actividad = evento.getActividades().get(NID);
-                                    actividad.inscribir(estudiante);
+                                    try {
+                                        actividad.inscribir(estudiante);
+                                        System.out.println("Inscripcion realizada correctamente");
+
+                                        boolean guardado = evento.persistirEvento();
+
+                                        if (guardado) {
+                                            System.out.println("Evento guardado");
+                                        } else{
+                                            System.out.println(("No fue posible guardar el evento"));
+                                        }
+
+                                        EventoUniversitario recuperado = evento.recuperarEvento(evento.getId());
+
+                                        if (recuperado != null){
+                                            System.out.println("Evento recuperado: " + recuperado.getTitulo());
+                                        } else {
+                                            System.out.println(("No fue posible recuperar el evento"));
+                                        }
+
+                                    } catch (CupoExcedidoException e) {
+                                        System.out.println("Error en la inscripcion: " + e.getMessage());
+                                    } finally {
+                                        System.out.println("Finalizo el proceso");
+                                    }
                                 }
                             }
                             CAN = false;
 
-                            System.out.println("Desea inscribir a otro Modelo.Estudiante? S/N");
+                            System.out.println("Desea inscribir a otro Estudiante? S/N");
                             String Re = scanner.nextLine().trim().toLowerCase();
 
                             if (Re.equals("s") || Re.equals("si")){

@@ -1,6 +1,6 @@
 package Modelo.Actividades;
 
-public class Charla extends Actividad{
+public class Charla extends Actividad {
     private String disertante;
 
     public Charla(int id, String titulo, String disertante, int cupo) {

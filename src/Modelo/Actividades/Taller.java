@@ -1,6 +1,6 @@
 package Modelo.Actividades;
 
-public class Taller extends Actividad{
+public class Taller extends Actividad {
     private  boolean PNB; //PNB = Pide NoteBook
 
     public Taller(int id, String titulo, boolean PNB, int cupo) {

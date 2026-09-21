@@ -2,7 +2,9 @@ package Modelo.Actividades;
 
 import Modelo.Inscripcion;
 import Modelo.Estudiante;
+import Excepciones.CupoExcedidoException;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +12,7 @@ import java.util.List;
 /*Debido a que cambie la clase Modelo.Actividades.Actividad a una clase Abstracta, tengo que reestructurar el codigo y en el Main
  * corregir las partes donde el codigo toma a la clase como no abstracta (Yo me entiendo)*/
 
-public abstract class Actividad {
+public abstract class Actividad implements Serializable {
     private int id;
     private String titulo;
     private int cupoMax;
@@ -60,16 +62,23 @@ public abstract class Actividad {
         this.inscripciones = inscripciones;
     }
 
-    public Inscripcion inscribir(Estudiante estudiante){
-        Inscripcion inscripto = new Inscripcion();
+    public Inscripcion inscribir(Estudiante estudiante) throws CupoExcedidoException {
 
-        inscripto.setEstudiante(estudiante);
-        inscripto.setEstado("Habilitado");
-        inscripto.setFecha(LocalDate.now());
+            if(inscripciones.size() >= cupoMax){
+                throw new CupoExcedidoException(
+                        "No hay cupo disponible para esta actividad"
+                );
+            }
 
-        inscripciones.add(inscripto);
+            Inscripcion inscripto = new Inscripcion();
 
-        return inscripto;
+            inscripto.setEstudiante(estudiante);
+            inscripto.setEstado("Habilitado");
+            inscripto.setFecha(LocalDate.now());
+
+            inscripciones.add(inscripto);
+
+            return inscripto;
     }
 
     public void mostrarInscripciones(){
