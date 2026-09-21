@@ -1,8 +1,13 @@
+package Modelo.Actividades;
+
+import Modelo.Inscripcion;
+import Modelo.Estudiante;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-/*Debido a que cambie la clase Actividad a una clase Abstracta, tengo que reestructurar el codigo y en el Main
+/*Debido a que cambie la clase Modelo.Actividades.Actividad a una clase Abstracta, tengo que reestructurar el codigo y en el Main
  * corregir las partes donde el codigo toma a la clase como no abstracta (Yo me entiendo)*/
 
 public abstract class Actividad {
@@ -69,9 +74,9 @@ public abstract class Actividad {
 
     public void mostrarInscripciones(){
         for (Inscripcion i : inscripciones){
-            System.out.println("Estudiante: " +i.getEstudiante().getNombre());
+            System.out.println("Modelo.Estudiante: " +i.getEstudiante().getNombre());
             System.out.println("Legajo: " +i.getEstudiante().getLegajo());
-            System.out.println("Fecha de Inscripcion: " +i.getFecha());
+            System.out.println("Fecha de Modelo.Inscripcion: " +i.getFecha());
             System.out.println("Estado: " +i.getEstado());
             System.out.println();
         }

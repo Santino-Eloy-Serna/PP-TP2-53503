@@ -1,3 +1,5 @@
+package Modelo.Actividades;
+
 public class Taller extends Actividad{
     private  boolean PNB; //PNB = Pide NoteBook
 

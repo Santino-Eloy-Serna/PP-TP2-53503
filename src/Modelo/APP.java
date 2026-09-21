@@ -1,3 +1,7 @@
+package Modelo;
+
+import Modelo.Actividades.Actividad;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,7 +15,7 @@ public class APP {
 
         while(TER) {
             System.out.println("Ingrese que desea hacer: ");
-            System.out.println("Registrar Estudiante (RE)");
+            System.out.println("Registrar Modelo.Estudiante (RE)");
             System.out.println("Crear Evento (CE)");
             //Crear un evento implica crear minimo una actividad, asignar una sala e inscribir un estudiante (Por ahora)
             String respuesta = scanner.nextLine().toLowerCase();
@@ -21,9 +25,9 @@ public class APP {
                     boolean CONT = true;
 
                     while (CONT){
-                        System.out.println("Ingrese el nombre del Estudiante: ");
+                        System.out.println("Ingrese el nombre del Modelo.Estudiante: ");
                         String N = scanner.nextLine();
-                        System.out.println("Ingrese el legajo del Estudiante: ");
+                        System.out.println("Ingrese el legajo del Modelo.Estudiante: ");
                         String L = scanner.nextLine();
 
                         estudiantes.add(new Estudiante(L,N));
@@ -68,17 +72,17 @@ public class APP {
                     boolean CAN = true;
 
                     while (CAN){
-                        System.out.println("Ingrese el nombre de la Actividad: ");
+                        System.out.println("Ingrese el nombre de la Modelo.Actividades.Actividad: ");
                         String NA = scanner.nextLine();
-                        System.out.println("Ingrese el cupo maximo de estudiantes para la Actividad: ");
+                        System.out.println("Ingrese el cupo maximo de estudiantes para la Modelo.Actividades.Actividad: ");
                         int C = scanner.nextInt();
                         scanner.nextLine();
-                        System.out.println("La actividad es una Charla o un Taller?");
+                        System.out.println("La actividad es una Modelo.Actividades.Charla o un Modelo.Actividades.Taller?");
                         String tipo = scanner.nextLine().trim().toLowerCase();
                         evento.CA(idA,NA,C,tipo);
                         CAN = false;
 
-                        System.out.println("Desea crear otro Actividad para este evento? S/N");
+                        System.out.println("Desea crear otro Modelo.Actividades.Actividad para este evento? S/N");
                         String Re = scanner.nextLine().trim().toLowerCase();
 
                         if (Re.equals("s") || Re.equals("si")){
@@ -95,7 +99,7 @@ public class APP {
                         while (CAN){
                             System.out.println("Ingrese el legajo del estudiante que dese inscribir: ");
                             String legajo = scanner.nextLine();
-                            System.out.println("Ingrese el id de la Actividad a inscribirse: ");
+                            System.out.println("Ingrese el id de la Modelo.Actividades.Actividad a inscribirse: ");
                             int NID = scanner.nextInt();
                             scanner.nextLine();
 
@@ -108,7 +112,7 @@ public class APP {
                             }
                             CAN = false;
 
-                            System.out.println("Desea inscribir a otro Estudiante? S/N");
+                            System.out.println("Desea inscribir a otro Modelo.Estudiante? S/N");
                             String Re = scanner.nextLine().trim().toLowerCase();
 
                             if (Re.equals("s") || Re.equals("si")){
@@ -143,6 +147,6 @@ public class APP {
 }
 
 // CCE = Calculo de Costo Estimado
-//AS = Asignar Sala
-//CA = Crear Actividad
+//AS = Asignar Modelo.Sala
+//CA = Crear Modelo.Actividades.Actividad
 //Comentario de Prueba

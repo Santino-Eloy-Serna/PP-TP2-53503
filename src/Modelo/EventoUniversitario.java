@@ -1,3 +1,9 @@
+package Modelo;
+
+import Modelo.Actividades.Actividad;
+import Modelo.Actividades.Charla;
+import Modelo.Actividades.Taller;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -106,7 +112,7 @@ public class EventoUniversitario {
         setSala(sala);
         System.out.println("Se asigno la sala "+sala.getId()+" al evento "+titulo);
     }
-    //AS = Asignar Sala
+    //AS = Asignar Modelo.Sala
 
     public void CA(int id, String titulo, int cupo, String tipo){
 
@@ -121,7 +127,7 @@ public class EventoUniversitario {
                 System.out.println("Se creo una actividad de tipo "+tipo+" en el evento "+titulo);
                 break;
             case "taller":
-                System.out.println("El Taller "+titulo+" requiere uso de NoteBook? (S/N)");
+                System.out.println("El Modelo.Actividades.Taller "+titulo+" requiere uso de NoteBook? (S/N)");
                 String respuesta = scanner.nextLine().trim().toLowerCase();
                 boolean PNB = respuesta.equals("s") || respuesta.equals("si");
                 Actividad taller = new Taller(id,titulo,PNB,cupo);
@@ -129,17 +135,17 @@ public class EventoUniversitario {
                 System.out.println("Se creo una actividad de tipo "+tipo+" en el evento "+titulo);
                 break;
             default:
-                System.out.println("Error: Actividad solicitada no encontrada");
+                System.out.println("Error: Modelo.Actividades.Actividad solicitada no encontrada");
         }
     }
-    //CA = Crear Actividad
+    //CA = Crear Modelo.Actividades.Actividad
 
     public void mostrar(){
         System.out.println("Evento codigo=" + Id);
         System.out.println("TÍtulo=" + titulo);
         System.out.println("Costo=" + this.CCE());
-        System.out.println("Sala asignada: " + (sala != null ? sala.getNombre() : "Sin sala")+"\n");
-        System.out.println("Actividades:");
+        System.out.println("Modelo.Sala asignada: " + (sala != null ? sala.getNombre() : "Sin sala")+"\n");
+        System.out.println("Modelo.Actividades:");
         for (Actividad actividad : actividades) {
             actividad.MI();
             actividad.mostrarInscripciones();
