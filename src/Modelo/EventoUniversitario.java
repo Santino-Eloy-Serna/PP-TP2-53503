@@ -180,7 +180,7 @@ public class EventoUniversitario implements Serializable{
     }
 
     public EventoUniversitario recuperarEvento(String id) {
-        String NA = "evento_" + id + ".dat";
+        String NA = "evento-" + id + ".dat";
 
         try (ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(NA))) {
 
