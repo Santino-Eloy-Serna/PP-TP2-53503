@@ -19,6 +19,7 @@ public class Taller extends Actividad implements Certificable {
         this.PNB = PNB;
     }
 
+    @Override
     public double calcularCM(){
         if (PNB){
             return 5000;
@@ -27,11 +28,13 @@ public class Taller extends Actividad implements Certificable {
         }
     }
 
+    @Override
     public String getTipo(){
         return "taller";
     }
 
+    @Override
     public String generarCertificado(Estudiante estudiante) {
-        return "Certificado de asistencia - Curso: "+getTitulo()+" - Estudiante: "+estudiante.getNombre()+" - Entidad emisora: "+ENTIDAD_EMISORA;
+        return "Certificado de asistencia - Taller: "+getTitulo()+" - Estudiante: "+estudiante.getNombre()+" - Entidad emisora: "+ENTIDAD_EMISORA;
     }
 }

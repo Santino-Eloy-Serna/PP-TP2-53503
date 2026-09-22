@@ -20,14 +20,17 @@ public class Curso extends Actividad implements Certificable {
         this.nivel = nivel;
     }
 
+    @Override
     public double calcularCM() {
         return 3000;
     }
 
+    @Override
     public String getTipo() {
         return "curso";
     }
 
+    @Override
     public String generarCertificado(Estudiante estudiante) {
         return "Certificado de asistencia - Curso: "+getTitulo()+" - Estudiante: "+estudiante.getNombre()+" - Entidad emisora: "+ENTIDAD_EMISORA;
     }

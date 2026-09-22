@@ -2,6 +2,7 @@ package Modelo;
 
 import Modelo.Actividades.Actividad;
 import Excepciones.CupoExcedidoException;
+import Modelo.Certificacion.Certificable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -142,6 +143,16 @@ public class APP {
 
                             if (Re.equals("s") || Re.equals("si")){
                                 CAN = true;
+                            }
+                        }
+                    }
+
+                    for (Actividad actividad : evento.getActividades()) {
+                        if (actividad instanceof Certificable certificable) {
+                            for (Inscripcion inscripcion : actividad.getInscripciones()) {
+                                System.out.println(
+                                        certificable.generarCertificado(inscripcion.getEstudiante())
+                                );
                             }
                         }
                     }
