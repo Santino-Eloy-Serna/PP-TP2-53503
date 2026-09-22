@@ -2,6 +2,7 @@ package Modelo;
 
 import Modelo.Actividades.Actividad;
 import Modelo.Actividades.Charla;
+import Modelo.Actividades.Curso;
 import Modelo.Actividades.Taller;
 
 import java.io.FileOutputStream;
@@ -140,6 +141,16 @@ public class EventoUniversitario implements Serializable{
                 Actividad taller = new Taller(id,titulo,PNB,cupo);
                 this.actividades.add(taller);
                 System.out.println("Se creo una actividad de tipo "+tipo+" en el evento "+titulo);
+                break;
+            case "curso":
+                System.out.println("Ingrese el nivel del curso:");
+                int nivel = scanner.nextInt();
+                scanner.nextLine();
+
+                Actividad curso = new Curso(id, titulo, nivel, cupo);
+                this.actividades.add(curso);
+
+                System.out.println("Se creo una actividad de tipo curso en el evento " + titulo);
                 break;
             default:
                 System.out.println("Error: Actividad solicitada no encontrada");
