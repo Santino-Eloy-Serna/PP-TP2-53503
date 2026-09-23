@@ -1,4 +1,4 @@
-package Modelo.Hilos;
+package Hilos;
 
 import Modelo.Actividades.Actividad;
 import Modelo.EventoUniversitario;

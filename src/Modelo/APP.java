@@ -6,7 +6,7 @@ import Modelo.Actividades.Charla;
 import Modelo.Actividades.Curso;
 import Modelo.Actividades.Taller;
 import Modelo.Certificacion.Certificable;
-import Modelo.Hilos.EnvioTicketsThread;
+import Hilos.EnvioTicketsThread;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -198,7 +198,7 @@ public class APP {
                     System.out.println("Desea hacer algo mas? S/N o Si/No");
                     Res = scanner.nextLine().trim().toLowerCase();
 
-                    if (Res.equals("n") || Res.equals("no")){
+                    if (Res.equals("n") || Res.equals("no") || Res.isEmpty()){
                         TER = false;
                         System.out.println("Hasta luego");
                     }
