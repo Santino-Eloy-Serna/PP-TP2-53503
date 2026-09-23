@@ -221,7 +221,7 @@ public class EventoUniversitario implements Serializable{
         return null;
     }
 
-    public <T extends Actividad> List<T> filtrarActividadesPorTipo(Class<T> tipo) {
+    public <T extends Actividad> List<T> FAT(Class<T> tipo) {
         List<T> resultado = new ArrayList<>();
 
         for (Actividad actividad : actividades) {
@@ -231,6 +231,9 @@ public class EventoUniversitario implements Serializable{
         }
         return resultado;
     }
+    // FAT = Filtrar actividades por tipo
+    //Se que significa gordo en ingles, pero no era mi intencion
+    //Como me da gracia, planeo dejarlo asi
 }
 
 //Comentario de Prueba

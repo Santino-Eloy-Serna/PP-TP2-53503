@@ -2,6 +2,9 @@ package Modelo;
 
 import Modelo.Actividades.Actividad;
 import Excepciones.CupoExcedidoException;
+import Modelo.Actividades.Charla;
+import Modelo.Actividades.Curso;
+import Modelo.Actividades.Taller;
 import Modelo.Certificacion.Certificable;
 
 import java.util.ArrayList;
@@ -156,6 +159,20 @@ public class APP {
                             }
                         }
                     }
+
+                    List<Charla> charlas = evento.FAT(Charla.class);
+
+                    List<Taller> talleres = evento.FAT(Taller.class);
+
+                    List<Curso> cursos = evento.FAT(Curso.class);
+
+                    System.out.println("Cantidad de charlas: "+charlas.size());
+                    System.out.println("Cantidad de talleres: "+talleres.size());
+                    System.out.println("Cantidad de cursos: "+cursos.size());
+
+                    System.out.println("Costo materiales de charlas: "+evento.CCM(charlas));
+                    System.out.println("Costo materiales de talleres: "+evento.CCM(talleres));
+                    System.out.println("Costo materiales de cursos: "+evento.CCM(cursos));
 
                     evento.mostrar();
                     evento1.mostrar();
