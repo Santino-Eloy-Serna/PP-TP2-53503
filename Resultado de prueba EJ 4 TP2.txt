@@ -1,0 +1,191 @@
+"D:\program files\Java\jdk-17\bin\java.exe" "-javaagent:D:\program files\IntelliJ IDEA 2026.2.1\lib\idea_rt.jar=65294" -Dfile.encoding=UTF-8 -classpath "D:\Trabajos Practicos\TP2\Trabajo 2\out\production\Trabajo 2" Modelo.APP
+Ingrese que desea hacer: 
+Registrar Estudiante (RE)
+Crear Evento (CE)
+re
+Ingrese el nombre del Estudiante: 
+Pepe
+Ingrese el legajo del Estudiante: 
+1
+Desea agregar otro estudiante? S/N
+s
+Ingrese el nombre del Estudiante: 
+Matias
+Ingrese el legajo del Estudiante: 
+2
+Desea agregar otro estudiante? S/N
+n
+Desea hacer algo mas? S/N o Si/No
+s
+La cantidad de eventos son: 0
+Ingrese que desea hacer: 
+Registrar Estudiante (RE)
+Crear Evento (CE)
+ce
+Ingrese el nombre del evento:
+Fiesta
+Ingrese el costo base del evento:
+0
+El evento tendra costo para los estudiantes?
+n
+Ingrese el nombre de la sala que se asignara al evento: 
+Central
+Se asigno la sala 1 al evento Fiesta
+Se asigno la sala 1 al evento Fiesta-CLON
+Ingrese el nombre de la Actividad: 
+Cumpleaños
+Ingrese el cupo maximo de estudiantes para la Actividad: 
+1
+La actividad es una Charla, un Curso o un Taller?
+Charla
+Ingrese el nombre del Disertante: 
+Matias
+Se creo una actividad de tipo charla en el evento Cumpleaños
+Desea crear otra Actividad para este evento? S/N
+s
+Ingrese el nombre de la Actividad: 
+Robotica
+Ingrese el cupo maximo de estudiantes para la Actividad: 
+2
+La actividad es una Charla, un Curso o un Taller?
+Taller
+El Actividades.Taller Robotica requiere uso de NoteBook? (S/N)
+s
+Se creo una actividad de tipo taller en el evento Robotica
+Desea crear otra Actividad para este evento? S/N
+s
+Ingrese el nombre de la Actividad: 
+Manualidades
+Ingrese el cupo maximo de estudiantes para la Actividad: 
+1
+La actividad es una Charla, un Curso o un Taller?
+Curso
+Ingrese el nivel del curso:
+2
+Se creo una actividad de tipo curso en el evento Manualidades
+Desea crear otra Actividad para este evento? S/N
+n
+Ingrese el legajo del estudiante que dese inscribir: 
+1
+Ingrese el id de la Actividad a inscribirse: 
+1
+Inscripcion realizada correctamente
+Evento Persistido
+Evento guardado
+Evento recuperado correctamente.
+Evento recuperado: Fiesta
+Finalizo el proceso
+Desea inscribir a otro Estudiante? S/N
+s
+Ingrese el legajo del estudiante que dese inscribir: 
+2
+Ingrese el id de la Actividad a inscribirse: 
+1
+Error en la inscripcion: No hay cupo disponible para esta actividad
+Finalizo el proceso
+Desea inscribir a otro Estudiante? S/N
+s
+Ingrese el legajo del estudiante que dese inscribir: 
+1
+Ingrese el id de la Actividad a inscribirse: 
+2
+Inscripcion realizada correctamente
+Evento Persistido
+Evento guardado
+Evento recuperado correctamente.
+Evento recuperado: Fiesta
+Finalizo el proceso
+Desea inscribir a otro Estudiante? S/N
+s
+Ingrese el legajo del estudiante que dese inscribir: 
+2
+Ingrese el id de la Actividad a inscribirse: 
+2
+Inscripcion realizada correctamente
+Evento Persistido
+Evento guardado
+Evento recuperado correctamente.
+Evento recuperado: Fiesta
+Finalizo el proceso
+Desea inscribir a otro Estudiante? S/N
+s
+Ingrese el legajo del estudiante que dese inscribir: 
+1
+Ingrese el id de la Actividad a inscribirse: 
+3
+Inscripcion realizada correctamente
+Evento Persistido
+Evento guardado
+Evento recuperado correctamente.
+Evento recuperado: Fiesta
+Finalizo el proceso
+Desea inscribir a otro Estudiante? S/N
+s
+Ingrese el legajo del estudiante que dese inscribir: 
+2
+Ingrese el id de la Actividad a inscribirse: 
+3
+Error en la inscripcion: No hay cupo disponible para esta actividad
+Finalizo el proceso
+Desea inscribir a otro Estudiante? S/N
+n
+Certificado de asistencia - Taller: Robotica - Estudiante: Pepe - Entidad emisora: UTN FRM
+Certificado de asistencia - Taller: Robotica - Estudiante: Matias - Entidad emisora: UTN FRM
+Certificado de asistencia - Curso: Manualidades - Estudiante: Pepe - Entidad emisora: UTN FRM
+Cantidad de charlas: 1
+Cantidad de talleres: 1
+Cantidad de cursos: 1
+Costo materiales de charlas: 0.0
+Costo materiales de talleres: 5000.0
+Costo materiales de cursos: 3000.0
+[Hilo Principal] Mostrando informacion del evento... 
+Evento codigo=EVT1
+TÍtulo=Fiesta
+[Hilo Envio] Iniciando envio de tickets...
+[Hilo Envio] Enviando ticket...
+Costo=9680.0
+Sala asignada: Central
+
+Actividades:
+Enviado ticket TICKET-1 al estudiante Pepe - fecha: 2026-09-22
+- charla: Cumpleaños (id=1) - Cupo máximo: 1
+Modelo.Estudiante: Pepe
+Legajo: 1
+Fecha de Modelo.Inscripcion: 2026-09-22
+Estado: Confirmado
+
+- taller: Robotica (id=2) - Cupo máximo: 2
+Modelo.Estudiante: Pepe
+Legajo: 1
+Fecha de Modelo.Inscripcion: 2026-09-22
+Estado: Confirmado
+
+Modelo.Estudiante: Matias
+Legajo: 2
+Fecha de Modelo.Inscripcion: 2026-09-22
+Estado: Habilitado
+
+- curso: Manualidades (id=3) - Cupo máximo: 1
+Modelo.Estudiante: Pepe
+Legajo: 1
+Fecha de Modelo.Inscripcion: 2026-09-22
+Estado: Confirmado
+
+Evento codigo=EVT1-CLON
+TÍtulo=Fiesta-CLON
+Costo=0.0
+Sala asignada: Central
+
+Actividades:
+La cantidad de eventos son: 1
+Desea hacer algo mas? S/N o Si/No
+[Hilo Envio] Enviando ticket...
+Enviado ticket TICKET-1 al estudiante Pepe - fecha: 2026-09-22
+[Hilo Envio] Enviando ticket...
+Enviado ticket TICKET-1 al estudiante Pepe - fecha: 2026-09-22
+[Hilo Envio] Finalizo el envio de tickets
+
+Hasta luego
+La cantidad de eventos son: 1
+
+Process finished with exit code 0
