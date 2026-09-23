@@ -6,6 +6,7 @@ import Modelo.Actividades.Charla;
 import Modelo.Actividades.Curso;
 import Modelo.Actividades.Taller;
 import Modelo.Certificacion.Certificable;
+import Modelo.Hilos.EnvioTicketsThread;
 
 import java.util.ArrayList;
 import java.util.List;
