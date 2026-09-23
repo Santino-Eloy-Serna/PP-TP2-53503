@@ -79,7 +79,7 @@ public class APP {
                         System.out.println("Ingrese el cupo maximo de estudiantes para la Actividad: ");
                         int C = scanner.nextInt();
                         scanner.nextLine();
-                        System.out.println("La actividad es una Charla o un Taller?");
+                        System.out.println("La actividad es una Charla, un Curso o un Taller?");
                         String tipo = scanner.nextLine().trim().toLowerCase();
                         evento.CA(idA,NA,C,tipo);
                         CAN = false;
@@ -150,9 +150,9 @@ public class APP {
                     for (Actividad actividad : evento.getActividades()) {
                         if (actividad instanceof Certificable certificable) {
                             for (Inscripcion inscripcion : actividad.getInscripciones()) {
-                                System.out.println(
-                                        certificable.generarCertificado(inscripcion.getEstudiante())
-                                );
+
+                                System.out.println(certificable.generarCertificado(inscripcion.getEstudiante()));
+
                             }
                         }
                     }

@@ -116,6 +116,16 @@ public class EventoUniversitario implements Serializable{
     }
     // CCE = Calculo de Costo Estimado
 
+    public double CCM(List<? extends Actividad> actividades) {
+        double total = 0;
+
+        for (Actividad actividad : actividades) {
+            total += actividad.calcularCM();
+        }
+        return total;
+    }
+    // CCM = Calcular Costo de Materiales
+
     public void AS(Sala sala){
         setSala(sala);
         System.out.println("Se asigno la sala "+sala.getId()+" al evento "+titulo);
@@ -209,6 +219,17 @@ public class EventoUniversitario implements Serializable{
         }
 
         return null;
+    }
+
+    public <T extends Actividad> List<T> filtrarActividadesPorTipo(Class<T> tipo) {
+        List<T> resultado = new ArrayList<>();
+
+        for (Actividad actividad : actividades) {
+            if (tipo.isInstance(actividad)) {
+                resultado.add(tipo.cast(actividad));
+            }
+        }
+        return resultado;
     }
 }
 
