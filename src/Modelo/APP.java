@@ -175,6 +175,21 @@ public class APP {
                     System.out.println("Costo materiales de talleres: "+evento.CCM(talleres));
                     System.out.println("Costo materiales de cursos: "+evento.CCM(cursos));
 
+                    for (Actividad actividad : evento.getActividades()){
+                        for (Inscripcion inscripcion : actividad.getInscripciones()){
+                            if (inscripcion.getEstudiante().getLegajo().equals("1")){
+                                inscripcion.confirmar();
+                                inscripcion.generarTicket();
+                            }
+                        }
+                    }
+
+                    EnvioTicketsThread hilo = new EnvioTicketsThread(evento);
+
+                    hilo.start();
+
+                    System.out.println("[Hilo Principal] Mostrando informacion del evento... ");
+
                     evento.mostrar();
                     evento1.mostrar();
 

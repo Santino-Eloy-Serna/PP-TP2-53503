@@ -18,8 +18,15 @@ public class EnvioTicketsThread extends Thread{
         for (Actividad actividad : evento.getActividades()){
             for (Inscripcion inscripcion : actividad.getInscripciones()){
                 if (inscripcion.getEstado().equals("Confirmado") && inscripcion.getTicket() != null){
-                    System.out.println("[Hilo Envio] El envio fue interrumpido");
-                    Thread.currentThread().interrupt();
+                    System.out.println("[Hilo Envio] Enviando ticket...");
+                    inscripcion.getTicket().enviarTicket();
+
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e){
+                        System.out.println("[Hilo Envio] El envio fue interrumpido");
+                        Thread.currentThread().interrupt();
+                    }
                 }
             }
         }

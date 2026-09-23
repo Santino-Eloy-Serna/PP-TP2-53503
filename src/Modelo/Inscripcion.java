@@ -47,18 +47,20 @@ public class Inscripcion implements Serializable {
             this.ticket =new TA("TICKET-"+estudiante.getLegajo(),LocalDate.now());
         }
     }
+
+    public class TA implements Serializable {
+        private String idTicket;
+        private LocalDate fechaEmision;
+
+        public TA(String idTicket, LocalDate fechaEmision){
+            this.idTicket = idTicket;
+            this.fechaEmision = fechaEmision;
+        }
+
+        public void enviarTicket() {
+            System.out.println("Enviado ticket "+idTicket+" al estudiante "+estudiante.getNombre()+" - fecha: "+fechaEmision);
+        }
+    }
 }
 
-public class TA implements Serializable {
-    private String idTicket;
-    private LocalDate fechaEmision;
 
-    public TA(String idTicket, LocalDate fechaEmision){
-        this.idTicket = idTicket;
-        this.fechaEmision = fechaEmision;
-    }
-
-    public void enviarTicket() {
-        System.out.println("Enviado ticket "+idTicket+" al estudiante "+estudiante.getNombre()+" - fecha: "+fechaEmision);
-    }
-}
